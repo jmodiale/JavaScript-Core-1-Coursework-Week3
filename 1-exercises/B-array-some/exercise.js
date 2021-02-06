@@ -22,3 +22,11 @@ var pairs = pairsByIndex.map(function (indexes) {
 });
 
 console.log(pairs);
+
+function nullV(index) {
+return index === null;
+}
+
+if (pairsByIndex.some(nullV)){
+return process.exit(1);
+}

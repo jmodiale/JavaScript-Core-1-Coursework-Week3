@@ -24,7 +24,22 @@ PasswordValidationResult=  [false, false, false, false, true]
 
 */
 
-function validatePasswords(passwords) {
+function validatePasswords(passwordChecker) {
+    let thePass = passwordChecker.map((password, index, array) => {
+    if (
+      password.length >= 5 &&
+      /[A-Z]/.test(password) &&
+      /[a-z]/.test(password) &&
+      /[0-9]/.test(password) &&
+      /[!#$%.*&]/.test(password) &&
+      array.indexOf(password) === index
+    ) {
+      return true;
+    } else {
+      return false;
+    }
+  });
+  return thePass
 }
 
 // Returns true if string contains at least one uppercase letter.
